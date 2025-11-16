@@ -13,9 +13,9 @@ from turtle import *
 
 from freegames import vector
 
-ball = vector(-200, -200)
+ball = vector(-200, -200) #Initial ball placement is at the bottom left corner of the map
 speed = vector(0, 0)
-targets = []
+targets = [] 
 
 
 def tap(x, y):
@@ -25,7 +25,7 @@ def tap(x, y):
         ball.y = -199
         speed.x = (x + 200) / 25
         speed.y = (y + 200) / 25 
-        #This makes inside(ball) == True 
+        #This makes inside(ball) == True untill it leaves the screen
 
 
 def inside(xy):
@@ -48,30 +48,30 @@ def draw():
     update() #constantly refreshes the screen to provide smooth animations for objects. 
 
 
-def move():
+def move(): 
     """Move ball and targets."""
-    if randrange(40) == 0:
-        y = randrange(-150, 150)
-        target = vector(200, y)
-        targets.append(target)
+    if randrange(40) == 0: #There is a 1/40 chance that a target will spawn 
+        y = randrange(-150, 150) #This places the y coordinate of the target
+        target = vector(200, y) #This makes the coordanates for which the target will appear
+        targets.append(target) #This attaches the target to the list of targets so it will spawn on the map
 
-    for target in targets:
-        target.x -= 0.5
+    for target in targets: 
+        target.x -= 0.5 #This is the speed at which each of the targets move. 
 
-    if inside(ball):
-        speed.y -= 0.35
-        ball.move(speed)
+    if inside(ball): #Only applies when the ball is launched
+        speed.y -= 0.35 #This is the gravity of the ball
+        ball.move(speed) #Sets the new speed of the ball each iteration
 
-    dupe = targets.copy()
-    targets.clear()
+    dupe = targets.copy() #This is how the ball deletes a target without destroying the entire set
+    targets.clear() 
 
-    for target in dupe:
+    for target in dupe: #This adds it back to the set of targets of the ball hasn't touched it.
         if abs(target - ball) > 13:
-            targets.append(target)
+            targets.append(target) #Lines 65-70 shows how the blue ball gets deleted when the red ball touches it.
 
     draw()
 
-    for target in targets:
+    for target in targets: #
         if not inside(target):
             return
 
