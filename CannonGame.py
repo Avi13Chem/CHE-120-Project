@@ -7,12 +7,8 @@ Exercises
 3. Apply gravity to the targets.
 4. Change the speed of the ball.
 """
-<<<<<<< HEAD
-from random import randrange
-=======
 
 from random import randrange #randrange selects a random item from a range.
->>>>>>> 3e052fc8cd073d313c2081816aba2bc6c54977b5
 from turtle import *
 
 from freegames import vector
