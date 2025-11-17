@@ -75,7 +75,8 @@ def move():
         if not inside(target):
             return
 
-    ontimer(move, 50)
+    ontimer(move, 50) #everytimes 50 milliseconts passes, it goes through the move function again.
+    #This is how it loops itself at the end. 
 
 
 setup(420, 420, 370, 0)
