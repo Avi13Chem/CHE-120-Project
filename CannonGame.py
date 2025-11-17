@@ -74,8 +74,10 @@ def move():
 
     for target in targets: #If a target is not on screen, end the game.
         if not inside(target):
-            lifes -= 1
+            lives -= 1
 
+    if lives < 0:
+        return
     ontimer(move, 50) #everytimes 50 milliseconts passes, it goes through the move function again.
     #This is how it loops itself at the end. 
 
