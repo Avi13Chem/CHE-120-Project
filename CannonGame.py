@@ -47,7 +47,7 @@ def draw():
 
     update() #constantly refreshes the screen to provide smooth animations for objects. 
 
-
+#This is line 50!
 def move(): 
     """Move ball and targets."""
     if randrange(40) == 0: #There is a 1/40 chance that a target will spawn 
