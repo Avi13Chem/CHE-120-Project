@@ -16,6 +16,7 @@ from freegames import vector
 ball = vector(-200, -200) #Initial ball placement is at the bottom left corner of the map
 speed = vector(0, 0)
 targets = [] 
+lives = 3
 
 
 def tap(x, y):
@@ -73,7 +74,7 @@ def move():
 
     for target in targets: #If a target is not on screen, end the game.
         if not inside(target):
-            return
+            lifes -= 1
 
     ontimer(move, 50) #everytimes 50 milliseconts passes, it goes through the move function again.
     #This is how it loops itself at the end. 
