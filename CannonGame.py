@@ -16,6 +16,8 @@ from freegames import vector
 ball = vector(-200, -200) #Initial ball placement is at the bottom left corner of the map
 speed = vector(0, 0)
 targets = [] 
+bombs = []
+powers = []
 lives = 3
 
 
@@ -58,7 +60,7 @@ def move():
         targets.append(target) #This attaches the target to the list of targets so it will spawn on the map
 
     for target in targets: 
-        target.x -= 0.5 #This is the speed at which each of the targets move. 
+        target.x -= 3 #This is the speed at which each of the targets move. 
 
     if inside(ball): #Only applies when the ball is launched
         speed.y -= 0.35 #This is the gravity of the ball
@@ -79,6 +81,7 @@ def move():
             lives -= 1
 
     if lives < 0:
+        clear()
         return
     ontimer(move, 50) #everytimes 50 milliseconts passes, it goes through the move function again.
     #This is how it loops itself at the end. 
@@ -90,4 +93,5 @@ up()
 tracer(False)
 onscreenclick(tap)
 move()
+#clear()
 done()
