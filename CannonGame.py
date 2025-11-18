@@ -50,6 +50,7 @@ def draw():
 
 #This is line 50!
 def move(): 
+    global lives
     """Move ball and targets."""
     if randrange(40) == 0: #There is a 1/40 chance that a target will spawn 
         y = randrange(-150, 150) #This places the y coordinate of the target
@@ -74,6 +75,7 @@ def move():
 
     for target in targets: #If a target is not on screen, end the game.
         if not inside(target):
+            targets.remove(target)
             lives -= 1
 
     if lives < 0:
