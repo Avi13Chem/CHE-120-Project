@@ -48,6 +48,10 @@ def draw():
         goto(ball.x, ball.y)
         dot(6, 'red')
 
+    for power in powers: 
+        goto(power.x, power.y)
+        dot(20, 'green')
+
     update() #constantly refreshes the screen to provide smooth animations for objects. 
 
 #This is line 50!
@@ -58,6 +62,12 @@ def move():
         y = randrange(-150, 150) #This places the y coordinate of the target
         target = vector(200, y) #This makes the coordanates for which the target will appear
         targets.append(target) #This attaches the target to the list of targets so it will spawn on the map
+    
+    if randrange(120) == 0: 
+        y = randrange(-150,150)
+        x = randrange(-150,150)
+        power = vector(x,y)
+        powers.append(power)
 
     for target in targets: 
         target.x -= 3 #This is the speed at which each of the targets move. 
@@ -72,6 +82,11 @@ def move():
     for target in dupe: #This adds it back to the set of targets of the ball hasn't touched it.
         if abs(target - ball) > 13:
             targets.append(target) #Lines 65-70 shows how the blue ball gets deleted when the red ball touches it.
+
+    for power in powers: 
+      if abs(power - ball) <13: 
+            powers.remove(power)
+            lives +=1
 
     draw()
 
