@@ -19,11 +19,14 @@ targets = []
 bombs = []
 powers = []
 lives = 3
+ballLine = []
 
 
 def tap(x, y):
+    global ballLine
     """Respond to screen tap."""  #If the ball isn't currently on the screen, it develops the coordinate of the ball on the screen where the user has clicked.
     if not inside(ball):
+        ballLine.clear()
         ball.x = -199
         ball.y = -199
         speed.x = (x + 200) / 25
@@ -37,6 +40,7 @@ def inside(xy):
 
 
 def draw():
+    global ballLine
     """Draw ball and targets."""
     clear()
 
@@ -44,13 +48,21 @@ def draw():
     text = "Lives: " + str(lives)
     write(text)
 
+    goto(-200,-200)
+    pendown()
+    for point in ballLine:
+        goto(point[0], point[1])
+    penup()
+
     for target in targets:
         goto(target.x, target.y) #Goes to every coordanite within the space and draws a large blue ball
         dot(20, 'blue')
 
     if inside(ball): #When clicked, this draws a red circle on the coordinate. 
         goto(ball.x, ball.y)
+        ballLine.append([ball.x, ball.y])
         dot(6, 'red')
+
 
     for power in powers: 
         goto(power.x, power.y)
@@ -58,7 +70,6 @@ def draw():
 
     update() #constantly refreshes the screen to provide smooth animations for objects. 
 
-#This is line 50!
 def move(): 
     global lives
     """Move ball and targets."""
