@@ -40,6 +40,10 @@ def draw():
     """Draw ball and targets."""
     clear()
 
+    goto(-200,180)
+    text = "Lives: " + str(lives)
+    write(text)
+
     for target in targets:
         goto(target.x, target.y) #Goes to every coordanite within the space and draws a large blue ball
         dot(20, 'blue')
