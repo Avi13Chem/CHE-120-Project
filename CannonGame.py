@@ -13,6 +13,8 @@ from turtle import *
 
 from freegames import vector
 
+targetImage = "target.gif"
+
 ball = vector(-200, -200) #Initial ball placement is at the bottom left corner of the map
 speed = vector(0, 0)
 targets = [] 
@@ -20,7 +22,6 @@ bombs = []
 powers = []
 lives = 3
 ballLine = []
-
 
 def tap(x, y):
     global ballLine
@@ -57,6 +58,8 @@ def draw():
     for target in targets:
         goto(target.x, target.y) #Goes to every coordanite within the space and draws a large blue ball
         dot(20, 'blue')
+        #screen.addshape(targetImage)
+        #shape(targetImage)
 
     if inside(ball): #When clicked, this draws a red circle on the coordinate. 
         goto(ball.x, ball.y)
