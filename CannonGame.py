@@ -58,6 +58,10 @@ def draw():
         goto(target.x, target.y) #Goes to every coordanite within the space and draws a large blue ball
         dot(20, 'blue')
 
+    for bomb in bombs:
+        goto(bomb.x, bomb.y)
+        dot(20, 'black')
+
     if inside(ball): #When clicked, this draws a red circle on the coordinate. 
         goto(ball.x, ball.y)
         ballLine.append([ball.x, ball.y])
@@ -84,8 +88,16 @@ def move():
         power = vector(x,y)
         powers.append(power)
 
+    if randrange(60) == 0:
+        y = randrange(-150, 150)
+        bomb = vector(200, y)   # start from the right side, like targets
+        bombs.append(bomb)
+
     for target in targets: 
         target.x -= 3 #This is the speed at which each of the targets move. 
+    
+    for bomb in bombs:
+        bomb.x -= 3
 
     if inside(ball): #Only applies when the ball is launched
         speed.y -= 0.35 #This is the gravity of the ball
@@ -103,12 +115,21 @@ def move():
             powers.remove(power)
             lives +=1
 
+    for bomb in bombs.copy():
+        if abs(bomb - ball) < 13:
+            bombs.remove(bomb)
+            lives -= 1
+
     draw()
 
     for target in targets: #If a target is not on screen, end the game.
         if not inside(target):
             targets.remove(target)
             lives -= 1
+
+    for bomb in bombs.copy():
+        if not inside(bomb):
+         bombs.remove(bomb)
 
     if lives < 0:
         clear()
