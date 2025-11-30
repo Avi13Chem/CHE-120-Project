@@ -94,10 +94,10 @@ def move():
         bombs.append(bomb)
 
     for target in targets: 
-        target.x -= 3 #This is the speed at which each of the targets move. 
+        target.x -= 0.5 #This is the speed at which each of the targets move. 
     
     for bomb in bombs:
-        bomb.x -= 3
+        bomb.x -= 0.5
 
     if inside(ball): #Only applies when the ball is launched
         speed.y -= 0.35 #This is the gravity of the ball
