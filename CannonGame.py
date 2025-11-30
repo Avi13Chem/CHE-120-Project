@@ -1,11 +1,17 @@
 """Cannon, hitting targets with projectiles.
 
-Exercises
+Our changes:
+Power ups
+Lives
+Parabola
+Bombs
+"""
 
-1. Keep score by counting target hits.
-2. Vary the effect of gravity.
-3. Apply gravity to the targets.
-4. Change the speed of the ball.
+"""
+Names:
+Avalon Martin-McTavish: AMM
+Christopher Gunawan: CG
+Retal Hashmi: RH
 """
 
 from random import randrange #randrange selects a random item from a range.

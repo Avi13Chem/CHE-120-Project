@@ -8,6 +8,13 @@ Exercises
 4. Change the speed of the ball.
 """
 
+"""
+Names:
+Avalon Martin-McTavish: AMM
+Christopher Gunawan: CG
+Retal Hashmi: RH
+"""
+
 from random import randrange #randrange selects a random item from a range.
 from turtle import *
 
@@ -56,7 +63,7 @@ def move():
         targets.append(target) #CG This attaches the target to the list of targets so it will spawn on the map
 
     for target in targets: 
-        target.x -= 0.5 #CGThis is the speed at which each of the targets move. 
+        target.x -= 0.5 #CG This is the speed at which each of the targets move. 
 
     if inside(ball): #Only applies when the ball is launched
         speed.y -= 0.35 #This is the gravity of the ball
@@ -71,7 +78,7 @@ def move():
 
     draw()
 
-    for target in targets: #If a target is not on screen, end the game.
+    for target in targets: #AMM If a target is not on screen, end the game.
         if not inside(target):
             return
 
