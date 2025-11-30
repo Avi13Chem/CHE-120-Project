@@ -17,6 +17,8 @@ targetImage = "target.gif"
 
 ball = vector(-200, -200) #Initial ball placement is at the bottom left corner of the map
 speed = vector(0, 0)
+
+#AMM Created variables to hold main information.
 targets = [] 
 bombs = []
 powers = []
@@ -45,10 +47,12 @@ def draw():
     """Draw ball and targets."""
     clear()
 
+    #AMM Displayed the lives variables on screen.
     goto(-200,180)
     text = "Lives: " + str(lives)
     write(text)
 
+    #AMM Drew the parabola of the ball.
     goto(-200,-200)
     pendown()
     for point in ballLine:
@@ -132,6 +136,7 @@ def move():
         if not inside(bomb):
          bombs.remove(bomb)
 
+    #AMM If all there are no more lives left, end the game.
     if lives < 0:
         clear()
         return
