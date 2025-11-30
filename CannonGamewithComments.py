@@ -50,10 +50,10 @@ def draw():
 
 def move(): 
     """Move ball and targets."""
-    if randrange(40) == 0: #There is a 1/40 chance that a target will spawn 
-        y = randrange(-150, 150) #This places the y coordinate of the target
-        target = vector(200, y) #This makes the coordanates for which the target will appear
-        targets.append(target) #This attaches the target to the list of targets so it will spawn on the map
+    if randrange(40) == 0: #CG There is a 1/40 chance that a target will spawn 
+        y = randrange(-150, 150) #CG This places the y coordinate of the target
+        target = vector(200, y) #CG This makes the coordanates for which the target will appear
+        targets.append(target) #CG This attaches the target to the list of targets so it will spawn on the map
 
     for target in targets: 
         target.x -= 0.5 #This is the speed at which each of the targets move. 
