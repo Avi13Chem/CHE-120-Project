@@ -56,7 +56,7 @@ def move():
         targets.append(target) #CG This attaches the target to the list of targets so it will spawn on the map
 
     for target in targets: 
-        target.x -= 0.5 #This is the speed at which each of the targets move. 
+        target.x -= 0.5 #CGThis is the speed at which each of the targets move. 
 
     if inside(ball): #Only applies when the ball is launched
         speed.y -= 0.35 #This is the gravity of the ball
