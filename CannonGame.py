@@ -58,7 +58,8 @@ def draw():
     for target in targets:
         goto(target.x, target.y) #Goes to every coordanite within the space and draws a large blue ball
         dot(20, 'blue')
-        #screen.addshape(targetImage)
+
+        # (targetImage)
         #shape(targetImage)
 
     if inside(ball): #When clicked, this draws a red circle on the coordinate. 
