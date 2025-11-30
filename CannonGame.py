@@ -73,7 +73,7 @@ def draw():
         dot(6, 'red')
 
 
-    for power in powers: 
+    for power in powers: #CG This draws a green dot at the coordinates of our powers. 
         goto(power.x, power.y)
         dot(20, 'green')
 
@@ -82,13 +82,13 @@ def draw():
 def move(): 
     global lives
     """Move ball and targets."""
-    if randrange(40) == 0: #There is a 1/40 chance that a target will spawn 
-        y = randrange(-150, 150) #This places the y coordinate of the target
-        target = vector(200, y) #This makes the coordanates for which the target will appear
-        targets.append(target) #This attaches the target to the list of targets so it will spawn on the map
+    if randrange(40) == 0: #CG There is a 1/40 chance that a target will spawn 
+        y = randrange(-150, 150) #CG This places the y coordinate of the target
+        target = vector(200, y) #CG This makes the coordanates for which the target will appear
+        targets.append(target) #CG This attaches the target to the list of targets so it will spawn on the map
     
-    if randrange(120) == 0: 
-        y = randrange(-150,150)
+    if randrange(120) == 0: #CG This spawns the powers when the iteration equals 0. To make it appear less often than targets, I've set the range to be longer
+        y = randrange(-150,150) #CG The next two codes spawns the coordinates within a random place in the game screen
         x = randrange(-150,150)
         power = vector(x,y)
         powers.append(power)
@@ -116,7 +116,7 @@ def move():
             targets.append(target) #Lines 65-70 shows how the blue ball gets deleted when the red ball touches it.
 
     for power in powers: 
-      if abs(power - ball) <13: 
+      if abs(power - ball) <13: #Cg If the ball gets anywhere near the power ball, it removes it from the list and adds a life
             powers.remove(power)
             lives +=1
 
