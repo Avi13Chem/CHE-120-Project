@@ -45,7 +45,7 @@ def draw():
     clear()
 
     for target in targets:
-        goto(target.x, target.y) #Goes to every coordanite within the space and draws a large blue ball
+        goto(target.x, target.y) #RH Goes to every coordanite within the space and draws a large blue ball
         dot(20, 'blue')
 
     if inside(ball): #When clicked, this draws a red circle on the coordinate. 
@@ -65,11 +65,11 @@ def move():
     for target in targets: 
         target.x -= 0.5 #CG This is the speed at which each of the targets move. 
 
-    if inside(ball): #Only applies when the ball is launched
-        speed.y -= 0.35 #This is the gravity of the ball
-        ball.move(speed) #Sets the new speed of the ball each iteration
+    if inside(ball): #RH Only applies when the ball is launched
+        speed.y -= 0.35 #RH This is the gravity of the ball
+        ball.move(speed) #RH Sets the new speed of the ball each iteration
 
-    dupe = targets.copy() #This is how the ball deletes a target without destroying the entire set
+    dupe = targets.copy() #RH This is how the ball deletes a target without destroying the entire set
     targets.clear() 
 
     for target in dupe: #This adds it back to the set of targets of the ball hasn't touched it.

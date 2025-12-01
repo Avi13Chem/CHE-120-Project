@@ -69,9 +69,9 @@ def draw():
         goto(target.x, target.y) #Goes to every coordanite within the space and draws a large blue ball
         dot(20, 'blue')
 
-    for bomb in bombs:
-        goto(bomb.x, bomb.y)
-        dot(20, 'black')
+    for bomb in bombs: #RH Loop through every bomb object in the bombs list
+        goto(bomb.x, bomb.y) # RH each bomb has x and y attributes)
+        dot(20, 'black') #RH Draw a black dot at that position to visually represent the bomb
 
     if inside(ball): #When clicked, this draws a red circle on the coordinate. 
         goto(ball.x, ball.y)
@@ -107,8 +107,8 @@ def move():
     for target in targets: 
         target.x -= 0.5 #This is the speed at which each of the targets move. 
     
-    for bomb in bombs:
-        bomb.x -= 0.5
+    for bomb in bombs: 
+        bomb.x -= 0.5 #RH Move the bomb to the left by decreasing its x-coordinate
 
     if inside(ball): #Only applies when the ball is launched
         speed.y -= 0.35 #This is the gravity of the ball
@@ -126,10 +126,10 @@ def move():
             powers.remove(power)
             lives +=1
 
-    for bomb in bombs.copy():
-        if abs(bomb - ball) < 13:
-            bombs.remove(bomb)
-            lives -= 1
+    for bomb in bombs.copy(): 
+        if abs(bomb - ball) < 13: #RH Check if the distance between the bomb and the ball is less than 13 
+            bombs.remove(bomb) #RH Remove the bomb that hit the ball
+            lives -= 1 #RH Decrease the player's lives by 1
 
     draw()
 
@@ -138,9 +138,9 @@ def move():
             targets.remove(target)
             lives -= 1
 
-    for bomb in bombs.copy():
+    for bomb in bombs.copy(): #RH # copy of the bombs list to avoid removing while looping
         if not inside(bomb):
-         bombs.remove(bomb)
+         bombs.remove(bomb) #RH Remove the bomb from the list
 
     #AMM If all there are no more lives left, end the game.
     if lives < 0:
