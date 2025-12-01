@@ -146,7 +146,7 @@ def move():
     if lives < 0:
         clear()
         return
-    ontimer(move, 50) #everytimes 50 milliseconts passes, it goes through the move function again.
+    ontimer(move, 50) #everytimes 50 milliseconds passes, it goes through the move function again.
     #This is how it loops itself at the end. 
 
 
